@@ -48,9 +48,8 @@ var balanceChecker = new Vue({
           pool.unpaidBalance = (response.data.total_unpaid || response.data.unpaid);
           pool.unpaidBalanceWorth = this.calculateWorth(pool.unpaidBalance);
         }.bind(this))
-        .catch(function(error) { // on fail log error try again
-          console.log("pool:",pool.name,"failed:",error)
-          this.getPoolData(pool);
+        .catch(function(error) {
+          setTimeout(function(){ this.getPoolData(pool); }, 200);
         }.bind(this));
     },
 
