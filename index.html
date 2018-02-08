@@ -15,11 +15,9 @@
         <div class="field">
           <label class="label">Wallet Address</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Address" id="address">
+            <input class="input" type="text" placeholder="Address" v-model="walletAddress" v-on:input="validateWalletAddress">
           </div>
           <p class="help">Enter the address of the wallet you want to check.</p>
-
-          <a class="button is-primary" id="search">Search</a>
         </div>
 
         <div class="columns" >
