@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+
+  </head>
+  <body>
+    <div class="section" id="balance-checker">
+      <div class="container is-fluid">
+
+        <div class="field">
+          <label class="label">Wallet Address</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Address" id="address">
+          </div>
+          <p class="help">Enter the address of the wallet you want to check.</p>
+
+          <a class="button is-primary" id="search">Search</a>
+        </div>
+
+        <div class="columns" >
+          <div class="column is-4" v-for="pool in pools">
+            <div class="notification">
+              <h5 class="pool">{{  pool.name }}</h5>
+              <p class="unpaid-balance">{{  pool.unpaidBalance }} BTC</p>
+              <p class="unpaid-balance-worth">${{  pool.unpaidBalanceWorth }} {{ currency }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

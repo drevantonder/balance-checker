@@ -1,0 +1,10 @@
+{
+  "name": "balance-checker",
+  "version": "0.1.0",
+  "main": "main.js",
+  "dependencies": {
+    "axios": "0.16.2",
+    "bulma": "0.6.2",
+    "vue": "2.5.13"
+  }
+}
