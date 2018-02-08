@@ -49,7 +49,7 @@ var balanceChecker = new Vue({
           pool.unpaidBalanceWorth = this.calculateWorth(pool.unpaidBalance);
         }.bind(this))
         .catch(function(error) {
-          setTimeout(function(){ this.getPoolData(pool); }, 200);
+          setTimeout(function(){ this.getPoolData(pool); }.bind(this), 200);
         }.bind(this));
     },
 
