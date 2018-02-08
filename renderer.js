@@ -1,24 +1,24 @@
 const axios = require('axios');
 const Vue = require("./node_modules/vue/dist/vue.js");
+const fs = require("fs");
+
+const config = JSON.parse(fs.readFileSync("config.json"));
 
 const walletRegex = /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
 
 var balanceChecker = new Vue({
   el: '#balance-checker',
   data: {
-    currency: "AUD", //TODO: add setting where user can set this
+    currency: config.currency,
     exchangeRate: 0,
-    walletAddress: "1AvyuTeXNVqu1wJoGBYQwGkZbGJZtSs22E",
+    walletAddress: config.defaultWalletAddress,
     canUpdate: false,
 
-    pools: [ //TODO: add setting where user can set this
-      {"name":"aHashPool",   "API":"http://www.ahashpool.com/api/wallet?address=WALLET_ADDRESS",    "unpaidBalance": 0,"unpaidBalanceWorth": 0},
-      {"name":"HashRefinery","API":"http://pool.hashrefinery.com/api/wallet?address=WALLET_ADDRESS","unpaidBalance": 0,"unpaidBalanceWorth": 0},
-      {"name":"ZPool",       "API":"http://www.zpool.ca/api/wallet?address=WALLET_ADDRESS",         "unpaidBalance": 0,"unpaidBalanceWorth": 0}],
+    pools: config.pools,
   },
   methods: {
     setExchangeRate: function(){
-      axios.get('https://blockchain.info/ticker') //TODO: add setting where user can set the bitcoin exchange rate provider
+      axios.get(config.bitcoinRateProvider)
         .then(function (response) {
           this.exchangeRate = response.data[this.currency]["15m"];
           console.log("Exchange Rate:",this.exchangeRate);
@@ -49,7 +49,7 @@ var balanceChecker = new Vue({
           pool.unpaidBalanceWorth = this.calculateWorth(pool.unpaidBalance);
         }.bind(this))
         .catch(function(error) {
-          setTimeout(function(){ this.getPoolData(pool); }.bind(this), 200);
+          setTimeout(function(){ this.getPoolData(pool); }.bind(this), 2000);
         }.bind(this));
     },
 

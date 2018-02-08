@@ -1,0 +1,24 @@
+{
+  "pools": [
+    {
+      "name":"aHashPool",
+      "API":"http://www.ahashpool.com/api/wallet?address=WALLET_ADDRESS",
+      "unpaidBalance": 0,
+      "unpaidBalanceWorth": 0
+    },
+    {
+      "name":"HashRefinery",
+      "API":"http://pool.hashrefinery.com/api/wallet?address=WALLET_ADDRESS",
+      "unpaidBalance": 0,
+      "unpaidBalanceWorth": 0
+    },
+    {"name":"ZPool",
+      "API":"http://www.zpool.ca/api/wallet?address=WALLET_ADDRESS",
+      "unpaidBalance": 0,
+      "unpaidBalanceWorth": 0
+    }],
+
+    "bitcoinRateProvider": "https://blockchain.info/ticker",
+    "currency": "AUD",
+    "defaultWalletAddress": "1AvyuTeXNVqu1wJoGBYQwGkZbGJZtSs22E"
+  }
