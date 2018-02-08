@@ -1,5 +1,5 @@
 # balance-checker
-A unpaid balance checker for mining made using electron and vue
+A unpaid balance checker for mining made using [Electron](https://electronjs.org) and [Vue](https://vuejs.org)
 
 # How to Install
 Clone Repository
