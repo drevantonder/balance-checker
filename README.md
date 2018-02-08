@@ -3,10 +3,19 @@ A unpaid balance checker for mining made using electron and vue
 
 # How to Install
 Clone Repository
-`git clone https://github.com/DrevanTonder/balance-checker.git`
+```shell
+git clone https://github.com/DrevanTonder/balance-checker.git
+```
 Move into Directory
-`cd balance-checker`
+```shell
+cd balance-checker
+```
 Install npm modules
-`npm install`
-Run `start.bat` or
-`electron .`
+```shell
+npm install
+```
+# Running
+Run `start.bat` or `electron .`
+
+# Contributing
+Contributions will appreciated
