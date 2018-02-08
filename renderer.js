@@ -42,7 +42,7 @@ var balanceChecker = new Vue({
     },
 
     getPoolData: function(pool){
-      var apiURL = pool.API.replace("WALLET_ADDRESS",this.walletAddress) //TODO: get the WALLET_ADDRESS from the input
+      var apiURL = pool.API.replace("WALLET_ADDRESS",this.walletAddress)
       axios.get(apiURL)
         .then(function (response) {
           pool.unpaidBalance = (response.data.total_unpaid || response.data.unpaid);
